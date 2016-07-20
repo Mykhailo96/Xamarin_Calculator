@@ -19,5 +19,15 @@ namespace Xamarin_Calculator
         double Substract(double a, double b);
 
         double Multiply(double a, double b);
+
+        void ReadNumber(double num, TextView textView);
+
+        void ReadComa();
+
+        void CallAdd();
+
+        void CallSubstract();
+
+        void CallMultiply();
     }
 }
