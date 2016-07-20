@@ -28,31 +28,19 @@ namespace Xamarin_Calculator
             Button buttonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
             Button buttonTimes = FindViewById<Button>(Resource.Id.ButtonTimes);
             Button buttonEqual = FindViewById<Button>(Resource.Id.ButtonEqual);
-
-            Button button1 = FindViewById<Button>(Resource.Id.Button1);
-            Button button2 = FindViewById<Button>(Resource.Id.Button2);
-            Button button3 = FindViewById<Button>(Resource.Id.Button3);
-            Button button4 = FindViewById<Button>(Resource.Id.Button4);
-            Button button5 = FindViewById<Button>(Resource.Id.Button5);
-            Button button6 = FindViewById<Button>(Resource.Id.Button6);
-            Button button7 = FindViewById<Button>(Resource.Id.Button7);
-            Button button8 = FindViewById<Button>(Resource.Id.Button8);
-            Button button9 = FindViewById<Button>(Resource.Id.Button9);
-            Button button0 = FindViewById<Button>(Resource.Id.Button0);
             Button buttonComa = FindViewById<Button>(Resource.Id.ButtonComa);
-            Button buttonClear = FindViewById<Button>(Resource.Id.ButtonClear);
 
-            button0.Click += (sender, e) => calc.ReadNumber(0, text);
-            button1.Click += (sender, e) => calc.ReadNumber(1, text);
-            button2.Click += (sender, e) => calc.ReadNumber(2, text);
-            button3.Click += (sender, e) => calc.ReadNumber(3, text);
-            button4.Click += (sender, e) => calc.ReadNumber(4, text);
-            button5.Click += (sender, e) => calc.ReadNumber(5, text);
-            button6.Click += (sender, e) => calc.ReadNumber(6, text);
-            button7.Click += (sender, e) => calc.ReadNumber(7, text);
-            button8.Click += (sender, e) => calc.ReadNumber(8, text);
-            button9.Click += (sender, e) => calc.ReadNumber(9, text);
-            buttonClear.Click += (sender, e) => calc.Clear(text);
+            FindViewById<Button>(Resource.Id.Button0).Click += (sender, e) => calc.ReadNumber(0, text);
+            FindViewById<Button>(Resource.Id.Button1).Click += (sender, e) => calc.ReadNumber(1, text);
+            FindViewById<Button>(Resource.Id.Button2).Click += (sender, e) => calc.ReadNumber(2, text);
+            FindViewById<Button>(Resource.Id.Button3).Click += (sender, e) => calc.ReadNumber(3, text);
+            FindViewById<Button>(Resource.Id.Button4).Click += (sender, e) => calc.ReadNumber(4, text);
+            FindViewById<Button>(Resource.Id.Button5).Click += (sender, e) => calc.ReadNumber(5, text);
+            FindViewById<Button>(Resource.Id.Button6).Click += (sender, e) => calc.ReadNumber(6, text);
+            FindViewById<Button>(Resource.Id.Button7).Click += (sender, e) => calc.ReadNumber(7, text);
+            FindViewById<Button>(Resource.Id.Button8).Click += (sender, e) => calc.ReadNumber(8, text);
+            FindViewById<Button>(Resource.Id.Button9).Click += (sender, e) => calc.ReadNumber(9, text);
+            FindViewById<Button>(Resource.Id.ButtonClear).Click += (sender, e) => calc.Clear(text);
 
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
