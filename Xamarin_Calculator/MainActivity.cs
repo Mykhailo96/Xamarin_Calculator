@@ -20,14 +20,12 @@ namespace Xamarin_Calculator
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
             TextView text = FindViewById<TextView>(Resource.Id.Text);
 
-            Button buttonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            FindViewById<Button>(Resource.Id.ButtonPlus).Click += (sender, e) => calc.CallAdd(text);
             Button buttonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
             Button buttonTimes = FindViewById<Button>(Resource.Id.ButtonTimes);
-            Button buttonEqual = FindViewById<Button>(Resource.Id.ButtonEqual);
+            FindViewById<Button>(Resource.Id.ButtonEqual).Click += (sender, e) => calc.Equal(text);
             Button buttonComa = FindViewById<Button>(Resource.Id.ButtonComa);
 
             FindViewById<Button>(Resource.Id.Button0).Click += (sender, e) => calc.ReadNumber(0, text);

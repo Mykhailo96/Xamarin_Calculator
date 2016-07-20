@@ -17,7 +17,8 @@ namespace Xamarin_Calculator
         private double FirstNum;
         private double SecondNum;
         private double Result;
-        private bool FirstEnd;
+        char operation;
+        private bool FirstEnd = false;
 
         public double Add(double a, double b)
         {
@@ -41,45 +42,93 @@ namespace Xamarin_Calculator
 
         public void ReadNumber(double num, TextView textView)
         {
-            if(!FirstEnd)
+            if (!FirstEnd)
             {
-                GrowNumber(FirstNum, num, textView);
+                //GrowNumber(FirstNum, num, textView);
+                if (FirstNum == 0 && num == 0)
+                    return;
+                if (FirstNum != 0)
+                {
+                    textView.Text = "";
+                    FirstNum *= 10;
+                }
+                
+                FirstNum += num;
+                textView.Text += FirstNum;
             }
             else
             {
-                GrowNumber(SecondNum, num, textView);
+                if (SecondNum == 0 && num == 0)
+                    return;
+                if (SecondNum != 0)
+                {
+                    textView.Text = FirstNum.ToString() + operation;
+                    SecondNum *= 10;
+                }
+
+                SecondNum += num;
+                textView.Text += SecondNum;
+                //GrowNumber(SecondNum, num, textView);
             }
         }
 
+
+
         private void GrowNumber(double fOrS, double num, TextView textView)
         {
+            if (fOrS == 0 && num == 0)
+                return;
+
             if (fOrS != 0)
             {
                 fOrS *= 10;
             }
 
             fOrS += num;
+            //textView.Text.Remove(0, fOrS.ToString().Length);
             textView.Text += fOrS;
         }
 
-        public void CallAdd()
+        public void CallAdd(TextView textView)
         {
-            Add(FirstNum, SecondNum);
+            FirstEnd = true;
+            operation = '+';
+            textView.Text += "+";
         }
 
-        public void CallSubstract()
+        public void CallSubstract(TextView textView)
         {
-            Substract(FirstNum, SecondNum);
+            FirstEnd = true;
+            operation = '-';
+            textView.Text += "-";
+        }
+
+        public void CallMultiply(TextView textView)
+        {
+            FirstEnd = true;
+            operation = '*';
+            textView.Text += "*";
         }
 
         public void Clear(TextView textView)
         {
             textView.Text = "";
+            FirstNum = 0;
+            SecondNum = 0;
+            FirstEnd = false;
         }
 
-        public void CallMultiply()
+        public void Equal(TextView textView)
         {
-            Multiply(FirstNum, SecondNum);
+            textView.Text += "=";
+            switch (operation)
+            {
+                case '+':
+                    textView.Text += Add(FirstNum, SecondNum);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

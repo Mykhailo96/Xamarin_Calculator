@@ -24,10 +24,12 @@ namespace Xamarin_Calculator
 
         void ReadComa();
 
-        void CallAdd();
+        void CallAdd(TextView textView);
 
-        void CallSubstract();
+        void CallSubstract(TextView textView);
 
-        void CallMultiply();
+        void CallMultiply(TextView textView);
+
+        void Equal(TextView textView);
     }
 }
