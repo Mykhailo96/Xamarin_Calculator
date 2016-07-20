@@ -22,9 +22,24 @@ namespace Xamarin_Calculator
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            Button buttonPlus = FindViewById<Button>(Resource.Id.ButtonPlus);
+            Button buttonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
+            Button buttonTimes = FindViewById<Button>(Resource.Id.ButtonTimes);
+            Button buttonEqual = FindViewById<Button>(Resource.Id.ButtonEqual);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            Button button1 = FindViewById<Button>(Resource.Id.Button1);
+            Button button2 = FindViewById<Button>(Resource.Id.Button2);
+            Button button3 = FindViewById<Button>(Resource.Id.Button3);
+            Button button4 = FindViewById<Button>(Resource.Id.Button4);
+            Button button5 = FindViewById<Button>(Resource.Id.Button5);
+            Button button6 = FindViewById<Button>(Resource.Id.Button6);
+            Button button7 = FindViewById<Button>(Resource.Id.Button7);
+            Button button8 = FindViewById<Button>(Resource.Id.Button8);
+            Button button9 = FindViewById<Button>(Resource.Id.Button9);
+            Button button0 = FindViewById<Button>(Resource.Id.Button0);
+            Button buttonComa = FindViewById<Button>(Resource.Id.ButtonComa);
+
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
     }
 }
