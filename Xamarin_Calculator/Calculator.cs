@@ -46,19 +46,25 @@ namespace Xamarin_Calculator
         public void ReadComma(TextView textView)
         {
             comma = true;
+
+            textView.Text += ".";
         }
 
         public void ReadNumber(double num, TextView textView)
         {
             if (!firstEnd)
             {
-                if (firstNum == 0 && num == 0)
+                if (firstNum == 0 && num == 0 && !comma)
                 {
-                    textView.Text = "0.";
-                    comma = true;
+                    textView.Text = "0";
                 }
                 else if(comma)
                 {
+                    if(num == 0)
+                    {
+                        textView.Text += "0";
+                    }
+
                     firstNum += num / Math.Pow(10, power++);
                     textView.Text = firstNum.ToString();
                 }
@@ -77,13 +83,17 @@ namespace Xamarin_Calculator
             }
             else
             {
-                if (secondNum == 0 && num == 0)
+                if (secondNum == 0 && num == 0 && !comma)
                 {
-                    textView.Text = firstNum.ToString() + operation + "0.";
-                    comma = true;
+                    textView.Text = firstNum.ToString() + operation + "0";
                 }
                 else if (comma)
                 {
+                    if (num == 0)
+                    {
+                        textView.Text += "0";
+                    }
+
                     secondNum += num / Math.Pow(10, power++);
                     textView.Text = firstNum.ToString() + operation + secondNum.ToString();
                 }
@@ -219,20 +229,6 @@ namespace Xamarin_Calculator
             power = 1;
             comma = false;
             result = false;
-        }
-
-        public void CancelNumber(TextView textView)
-        {
-            //if(firstEnd)
-            //{
-            //    textView.Text = firstNum.ToString() + operation;
-            //}
-            //else
-            //{
-            //    textView.Text = "";
-            //}
-
-            textView.Text += "";
         }
 
         public void Equal(TextView textView)
