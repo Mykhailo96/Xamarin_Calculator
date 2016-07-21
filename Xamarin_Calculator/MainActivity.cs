@@ -38,9 +38,10 @@ namespace Xamarin_Calculator
             FindViewById<Button>(Resource.Id.Button7).Click += (sender, e) => calc.ReadNumber(7, text);
             FindViewById<Button>(Resource.Id.Button8).Click += (sender, e) => calc.ReadNumber(8, text);
             FindViewById<Button>(Resource.Id.Button9).Click += (sender, e) => calc.ReadNumber(9, text);
-            FindViewById<Button>(Resource.Id.ButtonClear).Click += (sender, e) => calc.Clear(text);
 
-            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            FindViewById<Button>(Resource.Id.ButtonClear).Click += (sender, e) => calc.Clear(text);
+            FindViewById<Button>(Resource.Id.ButtonCancelNumber).Click += (sender, e) => calc.CancelNumber(text);
+
         }
     }
 }

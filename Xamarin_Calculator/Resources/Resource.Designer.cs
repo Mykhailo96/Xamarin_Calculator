@@ -90,6 +90,9 @@ namespace Xamarin_Calculator
 			// aapt resource value: 0x7f05000b
 			public const int Button9 = 2131034123;
 			
+			// aapt resource value: 0x7f050011
+			public const int ButtonCancelNumber = 2131034129;
+			
 			// aapt resource value: 0x7f050010
 			public const int ButtonClear = 2131034128;
 			

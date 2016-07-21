@@ -18,7 +18,7 @@ namespace Xamarin_Calculator
 
         private double secondNum;
 
-        private bool result;
+        private bool result = false;
 
         private int power = 1;
 
@@ -104,30 +104,108 @@ namespace Xamarin_Calculator
 
         public void CallAdd(TextView textView)
         {
+            switch (operation)
+            {
+                case '+':
+                    {
+                        firstNum = Add(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '-':
+                    {
+                        firstNum = Substract(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '*':
+                    {
+                        firstNum = Multiply(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            secondNum = 0;
             firstEnd = true;
             operation = '+';
             power = 1;
             comma = false;
+            result = false;
 
             textView.Text += "+";
         }
 
         public void CallSubstract(TextView textView)
         {
+            switch (operation)
+            {
+                case '+':
+                    {
+                        firstNum = Add(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '-':
+                    {
+                        firstNum = Substract(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '*':
+                    {
+                        firstNum = Multiply(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            secondNum = 0;
             firstEnd = true;
             operation = '-';
             power = 1;
             comma = false;
+            result = false;
 
             textView.Text += "-";
         }
 
         public void CallMultiply(TextView textView)
         {
+            switch (operation)
+            {
+                case '+':
+                    {
+                        firstNum = Add(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '-':
+                    {
+                        firstNum = Substract(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                case '*':
+                    {
+                        firstNum = Multiply(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            secondNum = 0;
             firstEnd = true;
             operation = '*';
             power = 1;
             comma = false;
+            result = false;
 
             textView.Text += "*";
         }
@@ -140,29 +218,55 @@ namespace Xamarin_Calculator
             firstEnd = false;
             power = 1;
             comma = false;
+            result = false;
+        }
+
+        public void CancelNumber(TextView textView)
+        {
+            //if(firstEnd)
+            //{
+            //    textView.Text = firstNum.ToString() + operation;
+            //}
+            //else
+            //{
+            //    textView.Text = "";
+            //}
+
+            textView.Text += "";
         }
 
         public void Equal(TextView textView)
         {
-            textView.Text += "=";
+            if (result)
+                return;
+
+            result = true;
+
             switch (operation)
             {
                 case '+':
-                    textView.Text += Add(firstNum, secondNum);
+                    {
+                        firstNum = Add(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
                     break;
                 case '-':
-                    textView.Text += Substract(firstNum, secondNum);
+                    {
+                        firstNum = Substract(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
                     break;
                 case '*':
-                    textView.Text += Multiply(firstNum, secondNum);
+                    {
+                        firstNum = Multiply(firstNum, secondNum);
+                        textView.Text = firstNum.ToString();
+                    }
                     break;
                 default:
                     break;
             }
 
-            firstNum = 0;
             secondNum = 0;
-            firstEnd = false;
             power = 1;
             comma = false;
         }
