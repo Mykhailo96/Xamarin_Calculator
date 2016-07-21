@@ -22,7 +22,7 @@ namespace Xamarin_Calculator
 
         void ReadNumber(double num, TextView textView);
 
-        void ReadComa();
+        void ReadComma(TextView textView);
 
         void CallAdd(TextView textView);
 

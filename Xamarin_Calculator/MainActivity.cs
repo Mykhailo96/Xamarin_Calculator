@@ -23,10 +23,10 @@ namespace Xamarin_Calculator
             TextView text = FindViewById<TextView>(Resource.Id.Text);
 
             FindViewById<Button>(Resource.Id.ButtonPlus).Click += (sender, e) => calc.CallAdd(text);
-            Button buttonMinus = FindViewById<Button>(Resource.Id.ButtonMinus);
-            Button buttonTimes = FindViewById<Button>(Resource.Id.ButtonTimes);
+            FindViewById<Button>(Resource.Id.ButtonMinus).Click += (sender, e) => calc.CallSubstract(text);
+            FindViewById<Button>(Resource.Id.ButtonTimes).Click += (sender, e) => calc.CallMultiply(text);
             FindViewById<Button>(Resource.Id.ButtonEqual).Click += (sender, e) => calc.Equal(text);
-            Button buttonComa = FindViewById<Button>(Resource.Id.ButtonComa);
+            FindViewById<Button>(Resource.Id.ButtonComa).Click += (sender, e) => calc.ReadComma(text);
 
             FindViewById<Button>(Resource.Id.Button0).Click += (sender, e) => calc.ReadNumber(0, text);
             FindViewById<Button>(Resource.Id.Button1).Click += (sender, e) => calc.ReadNumber(1, text);
